@@ -47,7 +47,7 @@ export function MapaInfo() {
             ))}
           </RevealItem>
 
-          <RevealItem className="flex flex-col sm:flex-row gap-4 mt-2">
+          <RevealItem className="flex flex-col sm:flex-row items-center gap-4 mt-2">
             <TennisBallCta href={WHATSAPP_URL} target="_blank" rel="noreferrer" size="lg">
               Abrir no WhatsApp
               <ArrowRight className="w-5 h-5 transition-transform duration-base group-hover:translate-x-0.5" aria-hidden />

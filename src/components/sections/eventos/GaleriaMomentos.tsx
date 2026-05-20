@@ -15,7 +15,7 @@ export function GaleriaMomentos() {
     <Section id="galeria">
       <SectionHeader eyebrow="Galeria" title="Momentos que aconteceram aqui." />
 
-      <Reveal stagger as="ul" className="grid grid-cols-2 md:grid-cols-3 gap-grid">
+      <Reveal stagger as="ul" className="grid grid-cols-2 md:grid-cols-3 gap-3">
         {GALLERY.map((photo) => (
           <RevealItem key={photo.src} as="li">
             <div className="aspect-square rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-base">

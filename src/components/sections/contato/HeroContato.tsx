@@ -30,7 +30,7 @@ export function HeroContato() {
           </motion.h1>
 
           <motion.div variants={fadeSlideIn} className="flex flex-col gap-4 mt-2 items-center">
-            <div className="flex items-start gap-3">
+            <div className="flex items-start gap-3 w-full">
               <MapPin className="w-5 h-5 text-brand-primary mt-1 shrink-0" aria-hidden />
               <div className="text-body-lg text-white/85 leading-snug text-left">
                 {CLUB.address.street}<br />
@@ -39,7 +39,7 @@ export function HeroContato() {
               </div>
             </div>
 
-            <div className="flex items-start gap-3">
+            <div className="flex items-start gap-3 w-full">
               <Clock className="w-5 h-5 text-brand-primary mt-1 shrink-0" aria-hidden />
               <div className="text-body text-white/75 text-left">
                 <span className="block font-bold text-white mb-1">Horários de funcionamento</span>
