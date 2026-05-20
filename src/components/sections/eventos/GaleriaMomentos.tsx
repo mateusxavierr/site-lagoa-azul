@@ -3,35 +3,28 @@ import { SocialIcon } from '@/components/primitives/SocialIcon'
 import { Section } from '@/components/primitives/Section'
 import { SectionHeader } from '@/components/primitives/SectionHeader'
 import { Reveal, RevealItem } from '@/components/primitives/Reveal'
-import { PlaceholderImage } from '@/components/primitives/PlaceholderImage'
 import { INSTAGRAM_URL } from '@/lib/data'
 
-const SUGGESTIONS = [
-  'Foto de ação do Brasil Tennis Classic — atleta profissional em quadra',
-  'Foto de premiação ou cerimônia do Brasil Tennis Classic',
-  'Foto de ação de dupla no Torneio Lagoa Azul amador',
-  'Foto de ranking interno — cerimônia ou jogadores',
-  'Foto de bastidor ou convivência — pessoas fora da quadra',
-  'Foto de modalidade alternativa (padel, beach tennis ou squash)',
-]
+const GALLERY = [1, 2, 3, 4, 5, 6].map((n) => ({
+  src: `/imagens_torneios/galeria${n}.png`,
+  alt: `Galeria Lagoa Azul Tênis Clube — foto ${n}`,
+}))
 
 export function GaleriaMomentos() {
   return (
     <Section id="galeria">
       <SectionHeader eyebrow="Galeria" title="Momentos que aconteceram aqui." />
 
-      <p className="text-caption text-text-muted italic mb-8 max-w-prose">
-        [INSERIR — HUMANO: selecionar 6 fotos do Instagram @lagoaazultenisclube com melhor qualidade técnica e diversidade de momentos]
-      </p>
-
       <Reveal stagger as="ul" className="grid grid-cols-2 md:grid-cols-3 gap-grid">
-        {SUGGESTIONS.map((s, i) => (
-          <RevealItem key={i} as="li">
-            <PlaceholderImage
-              ratio="1:1"
-              briefing={`Foto 1:1. ${s}. Fonte: Instagram @lagoaazultenisclube / Facebook @torneiolagoaazul.`}
-              className="shadow-sm hover:shadow-md transition-shadow duration-base"
-            />
+        {GALLERY.map((photo) => (
+          <RevealItem key={photo.src} as="li">
+            <div className="aspect-square rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-base">
+              <img
+                src={photo.src}
+                alt={photo.alt}
+                className="w-full h-full object-cover"
+              />
+            </div>
           </RevealItem>
         ))}
       </Reveal>

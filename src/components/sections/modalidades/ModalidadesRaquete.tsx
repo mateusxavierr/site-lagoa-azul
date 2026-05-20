@@ -1,7 +1,6 @@
 import { ArrowRight } from 'lucide-react'
 import { Section } from '@/components/primitives/Section'
 import { SectionHeader } from '@/components/primitives/SectionHeader'
-import { PlaceholderImage } from '@/components/primitives/PlaceholderImage'
 import { Reveal, RevealItem } from '@/components/primitives/Reveal'
 import { WHATSAPP_URL } from '@/lib/data'
 import { cn } from '@/lib/utils'
@@ -11,7 +10,7 @@ type Sport = {
   title: string
   body: string
   tags: string[]
-  briefing: string
+  image: string
 }
 
 const SPORTS: Sport[] = [
@@ -21,8 +20,7 @@ const SPORTS: Sport[] = [
     body:
       'Saibro coberto, iluminação e ranking semestral com cerimônia de premiação. Escolinha ativa para 9 a 18 anos — inclusive com etapas do circuito nacional.',
     tags: ['Saibro coberto', 'Ranking LetzPlay', 'Escolinha 9–18 anos'],
-    briefing:
-      'Foto. Conteúdo: Jogador em ação — saque ou forehand em quadra de saibro coberta; iluminação ao fundo; saibro levantado no pé. Tom: Técnico, aspiracional, concentrado. Composição: plano médio lateral, câmera ~1m. Proporção 16:9. Fonte: Instagram @lagoaazultenisclube. Alternativa: dois jogadores em partida de simples, quadra completa visível.',
+    image: '/imagens_modalidades/tenis_modalidade.jpeg',
   },
   {
     id: 'padel',
@@ -30,8 +28,7 @@ const SPORTS: Sport[] = [
     body:
       'O esporte que mais cresce no Brasil tem quadras cobertas e torneios próprios aqui. Uma comunidade em formação — boa hora para entrar.',
     tags: ['Quadras cobertas', 'Torneios próprios', 'Em expansão'],
-    briefing:
-      'Foto. Conteúdo: Partida de padel em andamento — câmera de fora da quadra através do vidro, 2 ou 4 jogadores; paredes de vidro visíveis; smash ou voleio. Tom: Social, dinâmico, vibrante. Composição: plano médio a aberto. Proporção 16:9. Reflexo do vidro mantido. Fonte: Instagram @lagoaazultenisclube — reels do torneio de padel. Alternativa: IA padel glass court 4 players match, warm lighting.',
+    image: '/imagens_modalidades/padel_modalidade.png',
   },
   {
     id: 'beach-tennis',
@@ -39,8 +36,7 @@ const SPORTS: Sport[] = [
     body:
       'Quadras de areia com intensidade de competição. O torneio "Rainha das Quadras" já é parte do calendário do clube.',
     tags: ['Quadras de areia', 'Torneio Rainha das Quadras'],
-    briefing:
-      'Foto. Conteúdo: Jogador em smash ou dupla em troca de bola na quadra de areia; areia, rede e delimitações visíveis; expressão de esforço/euforia. Tom: Energético, descontraído, vibrante. Composição: plano médio lateral. Proporção 16:9. Fonte: Instagram @lagoaazultenisclube — torneio Rainha das Quadras (mai/2025). Alternativa: foto de dois jogadores em troca, foco no movimento e areia.',
+    image: '/imagens_modalidades/beachtenis_modalidade.jpeg',
   },
   {
     id: 'squash',
@@ -48,8 +44,7 @@ const SPORTS: Sport[] = [
     body:
       'Quadras regulamentares e torneio próprio já realizado. Técnica e intensidade — sem precisar sair de Recife para encontrar estrutura de verdade.',
     tags: ['Quadras regulamentares', 'Torneio próprio'],
-    briefing:
-      'Foto. Conteúdo: Jogador dentro da quadra de squash em posição de ataque com raquete levantada; paredes laterais e frontão visíveis; iluminação dramática de teto. Tom: Intenso, técnico, premium. Composição: plano médio a leve contrapicado. Proporção 16:9. Tratamento: natural com leve aumento de contraste. Fonte: Instagram @lagoaazultenisclube — posts do torneio de squash. Alternativa: IA squash court player smashing, professional indoor court.',
+    image: '/imagens_modalidades/squash_modalidade.png',
   },
 ]
 
@@ -74,7 +69,13 @@ export function ModalidadesRaquete() {
                 )}
               >
                 <RevealItem>
-                  <PlaceholderImage ratio="16:9" briefing={sport.briefing} className="shadow-lg" />
+                  <div className="relative overflow-hidden rounded-xl shadow-lg aspect-video">
+                    <img
+                      src={sport.image}
+                      alt={sport.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                 </RevealItem>
 
                 <RevealItem className="flex flex-col gap-5">

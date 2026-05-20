@@ -8,6 +8,7 @@ const InstagramIcon: ComponentType<SVGProps<SVGSVGElement>> = (props) => (
 import { Section } from '@/components/primitives/Section'
 import { Reveal, RevealItem } from '@/components/primitives/Reveal'
 import { Button } from '@/components/ui/button'
+import { TennisBallCta } from '@/components/ui/TennisBallCta'
 import { CLUB, WHATSAPP_URL, LETZPLAY_URL, INSTAGRAM_URL, MAPS_URL, MAPS_EMBED } from '@/lib/data'
 
 const CHANNELS = [
@@ -47,12 +48,10 @@ export function MapaInfo() {
           </RevealItem>
 
           <RevealItem className="flex flex-col sm:flex-row gap-4 mt-2">
-            <Button asChild size="lg" className="group">
-              <a href={WHATSAPP_URL} target="_blank" rel="noreferrer">
-                Abrir no WhatsApp
-                <ArrowRight className="w-5 h-5 transition-transform duration-base group-hover:translate-x-0.5" aria-hidden />
-              </a>
-            </Button>
+            <TennisBallCta href={WHATSAPP_URL} target="_blank" rel="noreferrer" size="lg">
+              Abrir no WhatsApp
+              <ArrowRight className="w-5 h-5 transition-transform duration-base group-hover:translate-x-0.5" aria-hidden />
+            </TennisBallCta>
             <Button asChild variant="secondary" size="lg">
               <a href={MAPS_URL} target="_blank" rel="noreferrer">
                 Abrir no Google Maps

@@ -12,7 +12,7 @@ const MODALITIES = [
     title: 'Tênis',
     info: 'Saibro coberto · Ranking · Escolinha',
     to: '/modalidades#tenis',
-    image: '/modal-tenis.jpg',
+    image: '/tenis_home.jpeg',
   },
   {
     title: 'Padel',
@@ -36,7 +36,7 @@ const MODALITIES = [
     title: 'Wellness',
     info: 'Natação · Pilates · Academia · Fisioterapia',
     to: '/modalidades#wellness',
-    image: '/modal-wellness.jpg',
+    image: '/wellness_home_novo.jpg',
   },
 ]
 

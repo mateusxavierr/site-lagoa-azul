@@ -20,9 +20,6 @@ export function CtaModalidades() {
             <ArrowRight className="w-5 h-5 transition-transform duration-base group-hover:translate-x-0.5" aria-hidden />
           </TennisBallCta>
         </RevealItem>
-        <RevealItem as="p" className="mt-4 text-caption text-white/60 inline-flex items-center gap-2">
-          <span className="w-1.5 h-1.5 rounded-full bg-brand-vital" aria-hidden /> Visita gratuita ao clube disponível
-        </RevealItem>
       </Reveal>
     </Section>
   )

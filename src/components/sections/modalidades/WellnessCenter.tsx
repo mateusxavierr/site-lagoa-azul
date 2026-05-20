@@ -1,65 +1,102 @@
 import { ArrowRight, Dumbbell, Activity, TrendingUp } from 'lucide-react'
-import { Section } from '@/components/primitives/Section'
 import { Eyebrow } from '@/components/primitives/Eyebrow'
-import { PlaceholderImage } from '@/components/primitives/PlaceholderImage'
 import { Reveal, RevealItem } from '@/components/primitives/Reveal'
-import { Button } from '@/components/ui/button'
+import { TennisBallCta } from '@/components/ui/TennisBallCta'
 import { WHATSAPP_URL } from '@/lib/data'
 
 const FEATURES = [
-  { Icon: Dumbbell, label: 'Treino funcional' },
-  { Icon: Activity, label: 'Performance esportiva' },
-  { Icon: TrendingUp, label: 'Acompanhamento contínuo' },
+  { Icon: Dumbbell, label: 'Treino funcional', desc: 'Equipamentos de alto padrão' },
+  { Icon: Activity, label: 'Performance esportiva', desc: 'Para atletas de todos os níveis' },
+  { Icon: TrendingUp, label: 'Acompanhamento contínuo', desc: 'Evolução mensurável' },
 ]
-
-const BRIEFING =
-  'Foto. Conteúdo: Espaço do Wellness Center com equipamentos de treino funcional/musculação; preferencialmente um membro em uso; ambiente clean e iluminado. Tom: Profissional, premium, motivacional. Composição: plano médio a aberto, câmera de nível do olho. Proporção 16:9. Fonte: Instagram @lagoaazultenisclube — posts do Wellness Center (mai/2025+). Alternativa: IA premium sports performance center, functional training equipment, dark moody aesthetic.'
 
 export function WellnessCenter() {
   return (
-    <Section className="bg-surface-inverse text-white" id="wellness">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-        <Reveal stagger className="flex flex-col gap-6">
-          <RevealItem><Eyebrow tone="inverse">Novo · Aberto em 2025</Eyebrow></RevealItem>
-          <RevealItem as="h2" className="font-display uppercase text-[clamp(36px,5vw,64px)] leading-[0.98] tracking-tight font-black text-white">
-            Wellness Center
-          </RevealItem>
-          <RevealItem as="p" className="font-serif-italic text-h3 text-brand-primary">
-            Treino. Performance. Evolução.
-          </RevealItem>
-          <RevealItem as="p" className="text-body-lg text-white/80 max-w-prose">
-            Um espaço de condicionamento e saúde para membros do clube. Para quem quer melhorar o rendimento — dentro e fora das quadras.
+    <section
+      id="wellness"
+      className="relative overflow-hidden flex items-center"
+      style={{ background: '#303e47', minHeight: '680px' }}
+    >
+      {/* Photo — right side, raw, no overlay, diagonal clip */}
+      <div
+        className="absolute inset-y-0 right-0"
+        style={{
+          width: '62%',
+          clipPath: 'polygon(22% 0%, 100% 0%, 100% 100%, 0% 100%)',
+        }}
+      >
+        <img
+          src="/imagens_modalidades/wellness_center_reserva.png"
+          alt="Reserva Wellness Center"
+          className="w-full h-full object-cover object-center"
+        />
+      </div>
+
+      {/* Soft shadow on the diagonal edge for depth */}
+      <div
+        className="absolute inset-y-0 pointer-events-none"
+        style={{
+          right: 'calc(62% - 80px)',
+          width: '120px',
+          background: 'linear-gradient(to right, #303e47 0%, transparent 100%)',
+          zIndex: 2,
+        }}
+        aria-hidden
+      />
+
+      {/* Content — left side */}
+      <div className="relative z-10 w-full max-w-screen-xl mx-auto px-6 md:px-12 xl:px-20 py-24 md:py-32">
+        <Reveal stagger className="flex flex-col gap-6 max-w-[480px]">
+
+          <RevealItem>
+            <Eyebrow tone="inverse">Novo · Aberto em 2025</Eyebrow>
           </RevealItem>
 
-          <RevealItem as="ul" className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-2">
-            {FEATURES.map(({ Icon, label }) => (
-              <li
-                key={label}
-                className="flex flex-col gap-2 p-4 rounded-lg bg-white/5 border border-border-inverse hover:bg-white/10 hover:border-brand-primary/50 transition-colors"
-              >
-                <Icon className="w-6 h-6 text-brand-primary" aria-hidden />
-                <span className="text-body-sm font-bold text-white leading-snug">{label}</span>
+          <RevealItem>
+            <p className="font-serif-italic text-lg text-brand-primary tracking-wide">
+              Treino. Performance. Evolução.
+            </p>
+          </RevealItem>
+
+          <RevealItem>
+            <h2
+              className="font-display uppercase font-black text-white leading-[0.88] tracking-[-0.025em]"
+              style={{ fontSize: 'clamp(48px, 6vw, 84px)' }}
+            >
+              Reserva<br />Wellness<br />Center
+            </h2>
+          </RevealItem>
+
+          <RevealItem>
+            <p className="text-body-lg text-white/65 leading-relaxed max-w-sm">
+              Um espaço de condicionamento e saúde para membros do clube. Para quem quer melhorar o rendimento — dentro e fora das quadras.
+            </p>
+          </RevealItem>
+
+          <RevealItem as="ul" className="flex flex-col gap-3 mt-2">
+            {FEATURES.map(({ Icon, label, desc }) => (
+              <li key={label} className="flex items-center gap-4">
+                <span className="inline-flex items-center justify-center w-10 h-10 rounded-full shrink-0"
+                  style={{ background: 'rgba(10,169,190,0.12)', border: '1px solid rgba(10,169,190,0.25)' }}>
+                  <Icon className="w-5 h-5 text-brand-primary" aria-hidden />
+                </span>
+                <span className="flex flex-col">
+                  <span className="text-body font-bold text-white leading-tight">{label}</span>
+                  <span className="text-caption text-white/40">{desc}</span>
+                </span>
               </li>
             ))}
           </RevealItem>
 
-          <RevealItem>
-            <p className="text-caption text-white/50 italic mb-3">
-              [INSERIR — HUMANO: confirmar serviços e parceiro do Wellness Center com o clube]
-            </p>
-            <Button asChild variant="outline" size="lg">
-              <a href={WHATSAPP_URL} target="_blank" rel="noreferrer">
-                Saber mais pelo WhatsApp
-                <ArrowRight className="w-5 h-5" aria-hidden />
-              </a>
-            </Button>
+          <RevealItem className="mt-3">
+            <TennisBallCta href={WHATSAPP_URL} target="_blank" rel="noreferrer" size="lg">
+              Saber mais pelo WhatsApp
+              <ArrowRight className="w-5 h-5 transition-transform duration-base group-hover:translate-x-0.5" aria-hidden />
+            </TennisBallCta>
           </RevealItem>
-        </Reveal>
 
-        <Reveal>
-          <PlaceholderImage ratio="4:3" briefing={BRIEFING} tone="dark" className="shadow-2xl" />
         </Reveal>
       </div>
-    </Section>
+    </section>
   )
 }

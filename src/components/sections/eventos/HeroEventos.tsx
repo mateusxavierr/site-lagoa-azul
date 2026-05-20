@@ -2,26 +2,23 @@ import { motion } from 'framer-motion'
 import { Container } from '@/components/primitives/Container'
 import { Eyebrow } from '@/components/primitives/Eyebrow'
 import { GradientText } from '@/components/primitives/GradientText'
-import { PlaceholderImage } from '@/components/primitives/PlaceholderImage'
 import { fadeSlideIn, staggerContainer } from '@/lib/animations'
-
-const BRIEFING =
-  'Foto. Conteúdo: Atleta profissional em plena ação durante o Brasil Tennis Classic — saque de alta potência ou voleio decisivo; banners do torneio e/ou patrocinadores ao fundo. Tom: Espetacular, premium, intenso. Composição: plano médio, câmera ao nível do jogo / contrapicado leve. Proporção 16:9. Tratamento: natural + overlay escuro 35%. Fonte: folhape.com.br / carlosperuca.com / institutosports.com.br (cobertura nov/2024). Alternativa: foto de múltiplos jogadores em quadras durante torneio.'
 
 export function HeroEventos() {
   return (
-    <section data-hero className="relative overflow-hidden text-white">
-      <div className="absolute inset-0 -z-10">
-        <PlaceholderImage ratio="21:9" briefing={BRIEFING} tone="dark" rounded={false} className="h-full" decorative />
-        <div className="absolute inset-0 bg-gradient-to-b from-brand-secondary/55 via-brand-secondary/75 to-brand-secondary/95" aria-hidden />
-      </div>
+    <section
+      data-hero
+      className="relative text-white overflow-hidden min-h-screen flex items-center"
+      style={{ backgroundImage: 'url(/banner_eventos.png)', backgroundSize: 'cover', backgroundPosition: 'center' }}
+    >
+      <div className="absolute inset-0 bg-gradient-to-b from-brand-secondary/60 via-brand-secondary/70 to-brand-secondary/90" />
 
-      <Container className="relative">
+      <Container className="relative z-10 w-full">
         <motion.div
           initial="hidden"
           animate="visible"
           variants={staggerContainer}
-          className="flex flex-col gap-6 max-w-3xl pt-40 pb-section-y-md md:pt-52 md:pb-section-y-lg"
+          className="flex flex-col items-center text-center gap-6 py-section-y md:py-section-y-md lg:py-section-y-lg max-w-4xl mx-auto"
         >
           <motion.div variants={fadeSlideIn}><Eyebrow tone="inverse">Torneios · Rankings · Calendário</Eyebrow></motion.div>
           <motion.h1
@@ -30,7 +27,7 @@ export function HeroEventos() {
           >
             Do ranking interno ao <GradientText>circuito</GradientText> ATP.
           </motion.h1>
-          <motion.p variants={fadeSlideIn} className="text-body-lg text-white/85 max-w-prose">
+          <motion.p variants={fadeSlideIn} className="text-body-lg text-white/85 max-w-[52ch]">
             O Lagoa Azul tem eventos para todos os níveis — e para todos os gostos.
           </motion.p>
         </motion.div>
