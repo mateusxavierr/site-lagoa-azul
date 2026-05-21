@@ -3,6 +3,7 @@ import { Container } from '@/components/primitives/Container'
 import { Eyebrow } from '@/components/primitives/Eyebrow'
 import { GradientText } from '@/components/primitives/GradientText'
 import { fadeSlideIn, staggerContainer } from '@/lib/animations'
+import { asset } from '@/lib/asset'
 
 export function HeroEventos() {
   return (
@@ -13,11 +14,11 @@ export function HeroEventos() {
       {/* Imagem de fundo — mobile usa banner específico, desktop usa o padrão */}
       <div
         className="absolute inset-0 md:hidden"
-        style={{ backgroundImage: 'url(/banner_eventos_mobile.png)', backgroundSize: 'cover', backgroundPosition: 'center' }}
+        style={{ backgroundImage: `url(${asset('/banner_eventos_mobile.png')})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
       />
       <div
         className="absolute inset-0 hidden md:block"
-        style={{ backgroundImage: 'url(/banner_eventos.png)', backgroundSize: 'cover', backgroundPosition: 'center' }}
+        style={{ backgroundImage: `url(${asset('/banner_eventos.png')})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
       />
       <div className="absolute inset-0 bg-gradient-to-b from-brand-secondary/60 via-brand-secondary/70 to-brand-secondary/90" />
 

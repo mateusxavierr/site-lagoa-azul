@@ -6,6 +6,7 @@ import { Sheet } from '@/components/ui/sheet'
 import { TennisBallCta } from '@/components/ui/TennisBallCta'
 import { NAV_LINKS, WHATSAPP_URL, INSTAGRAM_URL } from '@/lib/data'
 import { cn } from '@/lib/utils'
+import { asset } from '@/lib/asset'
 
 export function TopNav() {
   const [open, setOpen] = useState(false)
@@ -67,7 +68,7 @@ export function TopNav() {
           className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
         >
           <img
-            src="/lagoa_azul_logo.png"
+            src={asset('/lagoa_azul_logo.png')}
             alt="Lagoa Azul Tênis Clube"
             className="h-10 md:h-12 w-auto object-contain"
           />
@@ -125,7 +126,7 @@ export function TopNav() {
         <div className="relative flex items-center justify-between h-full">
           <Link to="/" aria-label="Lagoa Azul Tênis Clube — início">
             <img
-              src="/lagoa_azul_logo.png"
+              src={asset('/lagoa_azul_logo.png')}
               alt="Lagoa Azul Tênis Clube"
               className="h-10 w-auto object-contain"
             />

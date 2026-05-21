@@ -3,6 +3,7 @@ import { Eyebrow } from '@/components/primitives/Eyebrow'
 import { Reveal, RevealItem } from '@/components/primitives/Reveal'
 import { TennisBallCta } from '@/components/ui/TennisBallCta'
 import { WHATSAPP_URL } from '@/lib/data'
+import { asset } from '@/lib/asset'
 
 const FEATURES = [
   { Icon: Dumbbell, label: 'Treino funcional', desc: 'Equipamentos de alto padrão' },
@@ -23,7 +24,7 @@ export function WellnessCenter() {
         {/* Hero: imagem com texto overlaid */}
         <div className="relative w-full overflow-hidden" style={{ minHeight: '340px' }}>
           <img
-            src="/imagens_modalidades/wellness_center_reserva.png"
+            src={asset('/imagens_modalidades/wellness_center_reserva.png')}
             alt="Reserva Wellness Center"
             className="absolute inset-0 w-full h-full object-cover object-center"
           />
@@ -85,7 +86,7 @@ export function WellnessCenter() {
           }}
         >
           <img
-            src="/imagens_modalidades/wellness_center_reserva.png"
+            src={asset('/imagens_modalidades/wellness_center_reserva.png')}
             alt="Reserva Wellness Center"
             className="w-full h-full object-cover object-center"
           />

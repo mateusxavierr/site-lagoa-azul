@@ -4,6 +4,7 @@ import { SectionHeader } from '@/components/primitives/SectionHeader'
 import { Reveal, RevealItem } from '@/components/primitives/Reveal'
 import { WHATSAPP_URL } from '@/lib/data'
 import { cn } from '@/lib/utils'
+import { asset } from '@/lib/asset'
 
 type Sport = {
   id: string
@@ -98,7 +99,7 @@ export function ModalidadesRaquete() {
                   <RevealItem>
                     <div className="relative overflow-hidden rounded-xl shadow-lg aspect-video">
                       <img
-                        src={sport.image}
+                        src={asset(sport.image)}
                         alt={sport.title}
                         className="w-full h-full object-cover"
                       />

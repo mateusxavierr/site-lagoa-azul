@@ -3,6 +3,7 @@ import { MapPin, MessageCircle } from 'lucide-react'
 import { SocialIcon } from '@/components/primitives/SocialIcon'
 import { Container } from '@/components/primitives/Container'
 import { CLUB, NAV_LINKS, WHATSAPP_URL, LETZPLAY_URL, INSTAGRAM_URL, FACEBOOK_URL } from '@/lib/data'
+import { asset } from '@/lib/asset'
 
 export function Footer() {
   return (
@@ -12,7 +13,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
           <div className="flex flex-col gap-4">
             <Link to="/" aria-label="Lagoa Azul Tênis Clube — início">
-              <img src="/lagoa_azul_logo.png" alt="Lagoa Azul Tênis Clube" className="h-20 w-auto object-contain" />
+              <img src={asset('/lagoa_azul_logo.png')} alt="Lagoa Azul Tênis Clube" className="h-20 w-auto object-contain" />
             </Link>
             <p className="text-body-sm text-white/75 max-w-[28ch]">{CLUB.tagline}</p>
           </div>

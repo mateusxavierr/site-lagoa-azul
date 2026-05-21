@@ -2,6 +2,7 @@ import { useEffect, type ReactNode } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { asset } from '@/lib/asset'
 
 type Props = {
   open: boolean
@@ -53,7 +54,7 @@ export function Sheet({ open, onClose, children, title, className }: Props) {
           >
             <div className="relative flex items-center justify-center px-4 py-3 border-b border-white/10">
               <img
-                src="/lagoa_azul_logo.png"
+                src={asset('/lagoa_azul_logo.png')}
                 alt="Lagoa Azul Tênis Clube"
                 className="h-10 w-auto object-contain"
               />

@@ -1,5 +1,6 @@
 import { Section } from '@/components/primitives/Section'
 import { Reveal, RevealItem } from '@/components/primitives/Reveal'
+import { asset } from '@/lib/asset'
 
 const ITEMS = [
   {
@@ -49,7 +50,7 @@ export function MaisModalidades() {
             >
               {/* Background image */}
               <img
-                src={image}
+                src={asset(image)}
                 alt=""
                 aria-hidden
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"

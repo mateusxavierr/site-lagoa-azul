@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import { Container } from '@/components/primitives/Container'
 import { Eyebrow } from '@/components/primitives/Eyebrow'
+import { asset } from '@/lib/asset'
 import { GradientText } from '@/components/primitives/GradientText'
 import { TennisBallCta } from '@/components/ui/TennisBallCta'
 import { WHATSAPP_URL } from '@/lib/data'
@@ -19,7 +20,7 @@ export function Hero() {
     <section
       data-hero
       className="relative text-white overflow-hidden min-h-[92vh] flex items-center"
-      style={{ backgroundImage: 'url(/banner_hero.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}
+      style={{ backgroundImage: `url(${asset('/banner_hero.jpg')})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
       <div className="absolute inset-0 bg-gradient-to-b from-brand-secondary/60 via-brand-secondary/70 to-brand-secondary/90" />
 

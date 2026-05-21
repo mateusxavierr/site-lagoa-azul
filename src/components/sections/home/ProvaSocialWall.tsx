@@ -1,4 +1,5 @@
 import { Reveal, RevealItem } from '@/components/primitives/Reveal'
+import { asset } from '@/lib/asset'
 
 const STATS = [
   { value: '1.382',   label: 'membros ativos no LetzPlay',              accent: '#0AA9BE' },
@@ -146,7 +147,7 @@ export function ProvaSocialWall() {
           {TRACK.map((s, i) => (
             <img
               key={i}
-              src={s.logo}
+              src={asset(s.logo)}
               alt={s.name}
               className="h-10 w-auto object-contain select-none flex-shrink-0"
               style={{ filter: 'brightness(0) invert(1)', opacity: 0.55 }}

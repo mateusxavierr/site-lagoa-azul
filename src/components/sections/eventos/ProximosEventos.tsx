@@ -3,6 +3,7 @@ import { Section } from '@/components/primitives/Section'
 import { SectionHeader } from '@/components/primitives/SectionHeader'
 import { Reveal, RevealItem } from '@/components/primitives/Reveal'
 import { LETZPLAY_URL } from '@/lib/data'
+import { asset } from '@/lib/asset'
 
 // ─── Calendário de torneios ────────────────────────────────────────────────────
 
@@ -54,14 +55,14 @@ function TicketCard({ t }: { t: Tournament }) {
       {/* Body (corpo do ingresso) */}
       <a href={t.href} target="_blank" rel="noreferrer" className="ticket-body group">
         {/* SVG ticket shape */}
-        <div className="ticket-bg" style={{ backgroundImage: 'url(/ticket/ticket-left.svg)' }} />
+        <div className="ticket-bg" style={{ backgroundImage: `url(${asset('/ticket/ticket-left.svg')})` }} />
 
         {/* Conteúdo do body */}
         <div className="ticket-body-content">
           {/* Imagem quadrada */}
           <div className="ticket-image-wrap">
             <img
-              src={t.image}
+              src={asset(t.image)}
               alt={`Arte de divulgação — ${t.title}`}
               className="ticket-image"
             />
@@ -92,7 +93,7 @@ function TicketCard({ t }: { t: Tournament }) {
 
       {/* Stub (canhoto) */}
       <a href={t.href} target="_blank" rel="noreferrer" className="ticket-stub group">
-        <div className="ticket-bg" style={{ backgroundImage: 'url(/ticket/ticket-right.svg)' }} />
+        <div className="ticket-bg" style={{ backgroundImage: `url(${asset('/ticket/ticket-right.svg')})` }} />
 
         <div className="ticket-stub-content">
           <span className="ticket-stub-vertical-cta">

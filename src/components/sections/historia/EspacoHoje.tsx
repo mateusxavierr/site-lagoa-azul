@@ -4,6 +4,7 @@ import { cn } from '@/lib/utils'
 import { Section } from '@/components/primitives/Section'
 import { Reveal } from '@/components/primitives/Reveal'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
+import { asset } from '@/lib/asset'
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
@@ -89,7 +90,7 @@ export function EspacoHoje() {
           <AnimatePresence mode="wait">
             <motion.img
               key={active}
-              src={PHOTOS[active].src}
+              src={asset(PHOTOS[active].src)}
               alt={PHOTOS[active].alt}
               className="absolute inset-0 w-full h-full object-cover"
               {...fadeProps}
@@ -144,7 +145,7 @@ export function EspacoHoje() {
               )}
             >
               <img
-                src={photo.src}
+                src={asset(photo.src)}
                 alt=""
                 aria-hidden
                 className="w-full h-full object-cover"
@@ -162,7 +163,7 @@ export function EspacoHoje() {
           <AnimatePresence mode="wait">
             <motion.img
               key={active}
-              src={PHOTOS[active].src}
+              src={asset(PHOTOS[active].src)}
               alt={PHOTOS[active].alt}
               className="absolute inset-0 w-full h-full object-cover"
               {...fadeProps}

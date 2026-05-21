@@ -1,6 +1,7 @@
 import { Section } from '@/components/primitives/Section'
 import { SectionHeader } from '@/components/primitives/SectionHeader'
 import { Reveal, RevealItem } from '@/components/primitives/Reveal'
+import { asset } from '@/lib/asset'
 
 const TOURNAMENTS = [
   {
@@ -50,7 +51,7 @@ export function TorneiosIconicos() {
             <article className="h-full flex flex-col gap-5 p-card-p md:p-card-p-lg rounded-xl bg-white/5 border border-border-inverse">
               <div className="overflow-hidden rounded-lg aspect-video">
                 <img
-                  src={t.image}
+                  src={asset(t.image)}
                   alt={t.title}
                   className="w-full h-full object-cover transition-transform duration-slow ease-standard group-hover:scale-[1.03]"
                 />

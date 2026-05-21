@@ -1,3 +1,4 @@
+import { asset } from '@/lib/asset'
 import { motion } from 'framer-motion'
 import { Container } from '@/components/primitives/Container'
 import { Eyebrow } from '@/components/primitives/Eyebrow'
@@ -9,7 +10,7 @@ export function HeroHistoria() {
     <section
       data-hero
       className="relative text-white overflow-hidden min-h-screen flex items-center"
-      style={{ backgroundImage: 'url(/banner_historia.png)', backgroundSize: 'cover', backgroundPosition: 'center' }}
+      style={{ backgroundImage: `url(${asset('/banner_historia.png')})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
       <div className="absolute inset-0 bg-gradient-to-b from-brand-secondary/60 via-brand-secondary/70 to-brand-secondary/90" />
 

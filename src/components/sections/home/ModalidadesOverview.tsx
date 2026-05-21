@@ -6,6 +6,7 @@ import { Section } from '@/components/primitives/Section'
 import { Container } from '@/components/primitives/Container'
 import { Eyebrow } from '@/components/primitives/Eyebrow'
 import { cn } from '@/lib/utils'
+import { asset } from '@/lib/asset'
 
 const MODALITIES = [
   {
@@ -102,7 +103,7 @@ export function ModalidadesOverview() {
                 <div className="flex items-center gap-3 px-4 py-3 md:px-8 md:py-3">
                   {/* Thumbnail — mobile only */}
                   <div className="md:hidden shrink-0 w-14 h-14 rounded-lg overflow-hidden">
-                    <img src={m.image} alt="" aria-hidden className="w-full h-full object-cover" />
+                    <img src={asset(m.image)} alt="" aria-hidden className="w-full h-full object-cover" />
                   </div>
 
                   {/* Name + info */}

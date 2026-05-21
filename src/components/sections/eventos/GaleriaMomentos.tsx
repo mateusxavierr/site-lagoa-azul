@@ -4,6 +4,7 @@ import { Section } from '@/components/primitives/Section'
 import { SectionHeader } from '@/components/primitives/SectionHeader'
 import { Reveal, RevealItem } from '@/components/primitives/Reveal'
 import { INSTAGRAM_URL } from '@/lib/data'
+import { asset } from '@/lib/asset'
 
 const GALLERY = [1, 2, 3, 4, 5, 6].map((n) => ({
   src: `/imagens_torneios/galeria${n}.png`,
@@ -20,7 +21,7 @@ export function GaleriaMomentos() {
           <RevealItem key={photo.src} as="li">
             <div className="aspect-square rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-base">
               <img
-                src={photo.src}
+                src={asset(photo.src)}
                 alt={photo.alt}
                 className="w-full h-full object-cover"
               />

@@ -6,6 +6,7 @@ import { Container } from '@/components/primitives/Container'
 import { Reveal } from '@/components/primitives/Reveal'
 import { Eyebrow } from '@/components/primitives/Eyebrow'
 import { cn } from '@/lib/utils'
+import { asset } from '@/lib/asset'
 
 const EVENTS = [
   {
@@ -61,7 +62,7 @@ function EventCard({
       )}
     >
       <img
-        src={event.image}
+        src={asset(event.image)}
         alt={event.title}
         className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 ease-[cubic-bezier(0.2,0.8,0.2,1)] group-hover:scale-105"
       />
