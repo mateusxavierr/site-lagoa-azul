@@ -5,12 +5,16 @@
 @tailwind utilities;
 
 @layer base {
-  html { scroll-behavior: smooth; }
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden; /* impede scroll lateral em qualquer página */
+  }
   body {
     @apply bg-surface-page text-text-primary font-sans antialiased;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
     background-repeat: repeat;
     background-size: 256px 256px;
+    overflow-x: hidden;
   }
   ::selection { @apply bg-brand-primary/30 text-text-primary; }
   *:focus { outline: none; }
@@ -454,9 +458,20 @@
 
 /* ── Responsivo ── */
 @media (max-width: 768px) {
-  /* Mantém o layout horizontal idêntico ao desktop — só escala com a viewport */
+  /* Mais alto que o desktop para caber melhor em tela estreita */
   .ticket-card {
-    aspect-ratio: 1000 / 480;
+    aspect-ratio: 1000 / 560;
+    /* Remove drop-shadow no mobile — era a causa do scroll lateral */
+    filter: none;
+    box-shadow: 0 6px 20px rgba(2, 57, 85, 0.13);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .ticket-card:hover {
+    transform: none;
+    filter: none;
+    box-shadow: 0 8px 24px rgba(2, 57, 85, 0.18);
   }
 
   /* Desabilita animação de rasgar (touch não tem hover real) */
@@ -465,10 +480,15 @@
     transform: none;
   }
 
-  /* Padding menor pra caber melhor */
+  /* Padding ajustado */
   .ticket-body-content {
-    padding: 5% 3% 5% 5%;
-    gap: clamp(8px, 2vw, 16px);
+    padding: 5% 2% 5% 5%;
+    gap: clamp(10px, 2.5vw, 18px);
+  }
+
+  /* Imagem quadrada um pouco maior no mobile */
+  .ticket-image-wrap {
+    border-radius: 8px;
   }
 
   /* Subtitle e texto descritivo — esconde no mobile para dar respiro */
@@ -477,7 +497,28 @@
     display: none;
   }
 
-  /* "LETZPLAY" no meta do body — já está na stub, redundante no mobile */
+  /* Data: tamanho ok para mobile */
+  .ticket-date {
+    font-size: clamp(10px, 2.5vw, 13px);
+    letter-spacing: 0.18em;
+  }
+
+  /* Título maior para boa leitura */
+  .ticket-title {
+    font-size: clamp(18px, 5vw, 28px);
+    margin: 2px 0;
+  }
+
+  /* Meta: localização fica visível */
+  .ticket-meta {
+    padding-top: 8px;
+  }
+
+  .ticket-location {
+    font-size: clamp(9px, 2vw, 11px);
+  }
+
+  /* "LETZPLAY" no meta do body — já está na stub */
   .ticket-letzplay-logo {
     display: none;
   }
@@ -487,15 +528,15 @@
     display: none;
   }
 
-  /* Stub compacto: texto vertical menor + seta integrada */
+  /* Stub compacto */
   .ticket-stub-content {
-    padding: 6% 3% 6% 9%;
+    padding: 6% 4% 6% 8%;
     justify-content: center;
-    gap: 8px;
+    gap: 10px;
   }
 
   .ticket-stub-vertical-cta {
-    font-size: clamp(10px, 2.6vw, 14px);
+    font-size: clamp(11px, 2.8vw, 15px);
     flex: 0 1 auto;
   }
 
@@ -506,7 +547,7 @@
   }
 
   .ticket-stub-arrow {
-    width: 22px;
-    height: 22px;
+    width: 26px;
+    height: 26px;
   }
 }
