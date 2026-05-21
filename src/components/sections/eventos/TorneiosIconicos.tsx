@@ -26,11 +26,25 @@ export function TorneiosIconicos() {
     <Section className="bg-surface-inverse text-white" id="torneios-iconicos">
       <SectionHeader
         eyebrow="Tradição"
-        title="Os torneios que definem o Lagoa Azul."
+        title={
+          <>
+            Os torneios que definem o{' '}
+            <span
+              style={{
+                background: 'linear-gradient(92deg, #0AA9BE 0%, #75B53B 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}
+            >
+              Lagoa Azul.
+            </span>
+          </>
+        }
         tone="inverse"
       />
 
-      <Reveal stagger as="ul" className="grid grid-cols-1 lg:grid-cols-2 gap-grid lg:gap-10">
+      <Reveal stagger as="ul" className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-10">
         {TOURNAMENTS.map((t) => (
           <RevealItem key={t.title} as="li">
             <article className="h-full flex flex-col gap-5 p-card-p md:p-card-p-lg rounded-xl bg-white/5 border border-border-inverse">

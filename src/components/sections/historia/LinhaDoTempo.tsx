@@ -2,7 +2,7 @@ import { useRef, useEffect, useState, forwardRef } from 'react'
 import { motion, useScroll, useSpring } from 'framer-motion'
 import { Trophy, TrendingUp, Building2, Flag, Medal, Star, type LucideIcon } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { Section } from '@/components/primitives/Section'
+import { Container } from '@/components/primitives/Container'
 import { SectionHeader } from '@/components/primitives/SectionHeader'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
 
@@ -246,7 +246,28 @@ export function LinhaDoTempo() {
   }, [])
 
   return (
-    <Section id="linha-do-tempo">
+    <section
+      id="linha-do-tempo"
+      className="relative overflow-hidden py-section-y md:py-section-y-md lg:py-section-y-lg"
+      style={{ background: 'linear-gradient(135deg, #ffffff 0%, #f0f8fa 55%, #e6f4f7 100%)' }}
+    >
+      {/* Glows decorativos sobre o gradiente */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden>
+        <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 55% 40% at 0% 20%, rgba(10,169,190,0.10) 0%, transparent 70%)' }} />
+        <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 50% 35% at 100% 80%, rgba(117,181,59,0.08) 0%, transparent 70%)' }} />
+      </div>
+
+      {/* Linhas diagonais em teal */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        aria-hidden
+        style={{
+          backgroundImage: 'repeating-linear-gradient(45deg, rgba(10,169,190,0.07) 0px, rgba(10,169,190,0.07) 1px, transparent 0px, transparent 50%)',
+          backgroundSize: '40px 40px',
+        }}
+      />
+
+      <Container className="relative z-10">
       <SectionHeader
         eyebrow="Nossa trajetória"
         title="Uma reputação construída antes de ter paredes."
@@ -282,6 +303,7 @@ export function LinhaDoTempo() {
         </ol>
 
       </div>
-    </Section>
+      </Container>
+    </section>
   )
 }

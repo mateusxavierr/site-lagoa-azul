@@ -12,31 +12,31 @@ const MODALITIES = [
     title: 'Tênis',
     info: 'Saibro coberto · Ranking · Escolinha',
     to: '/modalidades#tenis',
-    image: '/tenis_home.jpeg',
+    image: '/imagens_home/jogador_tenis_lagoa_azul.png',
   },
   {
     title: 'Padel',
     info: 'Quadras cobertas · Torneios próprios',
     to: '/modalidades#padel',
-    image: '/modal-padel.jpg',
+    image: '/imagens_home/jogadores_padel_lagoa_azul.png',
   },
   {
     title: 'Beach Tennis',
     info: 'Quadra de areia · Rainha das Quadras',
     to: '/modalidades#beach-tennis',
-    image: '/modal-beach.jpg',
+    image: '/imagens_home/jogador_beach_tennis_lagoa_azul.png',
   },
   {
     title: 'Squash & mais',
     info: 'Badminton · Pickleball · Quadras dedicadas',
     to: '/modalidades#squash',
-    image: '/modal-squash.jpg',
+    image: '/imagens_home/jogador_squash_lagoa_azul.png',
   },
   {
     title: 'Wellness',
     info: 'Natação · Pilates · Academia · Fisioterapia',
     to: '/modalidades#wellness',
-    image: '/wellness_home_novo.jpg',
+    image: '/imagens_home/reserva_wellness_center.png',
   },
 ]
 
@@ -47,7 +47,7 @@ export function ModalidadesOverview() {
     <Section id="modalidades-overview">
       <Container>
         <div className="mb-10 flex flex-col gap-3 max-w-2xl mx-auto">
-          <Eyebrow>Para todo nível · Todas as raquetes</Eyebrow>
+          <Eyebrow className="text-[10px] tracking-[0.07em] md:text-eyebrow md:tracking-[0.20em]">Para todo nível · Todas as raquetes</Eyebrow>
           <h2 className="font-display uppercase text-[clamp(32px,5vw,56px)] leading-[1.02] tracking-tight font-black text-text-primary">
             Escolha o seu esporte.<br />O clube cuida do resto.
           </h2>
@@ -55,7 +55,7 @@ export function ModalidadesOverview() {
 
         {/* List container */}
         <div
-          className="relative overflow-hidden rounded-xl flex flex-col aspect-square max-w-2xl mx-auto"
+          className="relative overflow-hidden rounded-xl flex flex-col max-w-2xl mx-auto md:aspect-square"
           onMouseLeave={() => setActive(null)}
         >
           {/* Full-area image overlay — pointer-events:none so rows stay hoverable */}
@@ -99,22 +99,27 @@ export function ModalidadesOverview() {
                 style={{ zIndex: isActive ? 20 : 1 }}
                 onMouseEnter={() => setActive(i)}
               >
-                <div className="flex items-center justify-between gap-6 px-6 py-3 md:px-8 md:py-3">
-                  {/* Left: name + info */}
-                  <div className="flex flex-col gap-1.5">
+                <div className="flex items-center gap-3 px-4 py-3 md:px-8 md:py-3">
+                  {/* Thumbnail — mobile only */}
+                  <div className="md:hidden shrink-0 w-14 h-14 rounded-lg overflow-hidden">
+                    <img src={m.image} alt="" aria-hidden className="w-full h-full object-cover" />
+                  </div>
+
+                  {/* Name + info */}
+                  <div className="flex flex-col gap-1 min-w-0 flex-1">
                     <h3
                       className={cn(
                         'font-display uppercase font-black leading-none transition-colors duration-300',
                         isActive ? 'text-white' : 'text-text-primary',
                       )}
-                      style={{ fontSize: 'clamp(20px, 2.6vw, 44px)', letterSpacing: '0.04em' }}
+                      style={{ fontSize: 'clamp(26px, 2.6vw, 44px)', letterSpacing: '0.04em' }}
                     >
                       {m.title}
                     </h3>
                     {m.info && (
                       <span
                         className={cn(
-                          'text-caption uppercase tracking-[0.18em] transition-colors duration-300',
+                          'hidden md:inline text-caption uppercase tracking-[0.14em] transition-colors duration-300 truncate',
                           isActive ? 'text-white/60' : 'text-text-muted',
                         )}
                       >
@@ -127,14 +132,14 @@ export function ModalidadesOverview() {
                   <Link
                     to={m.to}
                     className={cn(
-                      'shrink-0 inline-flex items-center justify-center w-11 h-11 rounded-full border transition-all duration-300',
+                      'shrink-0 inline-flex items-center justify-center w-10 h-10 md:w-11 md:h-11 rounded-full border transition-all duration-300',
                       isActive
                         ? 'border-brand-primary bg-brand-primary text-white scale-110'
                         : 'border-border-strong text-text-muted hover:border-brand-primary hover:text-brand-primary',
                     )}
                     aria-label={`Conhecer ${m.title}`}
                   >
-                    <ArrowUpRight className="w-5 h-5" />
+                    <ArrowUpRight className="w-4 h-4 md:w-5 md:h-5" />
                   </Link>
                 </div>
               </div>

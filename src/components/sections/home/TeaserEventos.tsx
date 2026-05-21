@@ -11,21 +11,21 @@ const EVENTS = [
   {
     title: 'Brasil Tennis Classic',
     subtitle: 'Atletas do ranking ATP em Recife.',
-    image: '/event-atp.jpg',
+    image: '/imagens_torneio_home/brasil_tennis_classic.png',
     href: '/eventos',
     large: true,
   },
   {
     title: 'Torneio Lagoa Azul',
     subtitle: 'O maior amador de duplas do Nordeste.',
-    image: '/event-doubles.jpg',
+    image: '/imagens_torneio_home/torneio_lagoa_azul_16_9.png',
     href: '/eventos',
     large: false,
   },
   {
     title: 'Ranking do Clube',
     subtitle: 'Quadras e ranking atualizados toda semana.',
-    image: '/event-courts.jpg',
+    image: '/imagens_torneio_home/podio_torneio_lagoa_azul.png',
     href: '/eventos',
     large: false,
   },
@@ -55,10 +55,10 @@ function EventCard({
       className={cn(
         'group relative flex flex-col justify-end overflow-hidden rounded-xl bg-neutral-900',
         'transition-all duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)]',
+        event.large ? 'min-h-[200px] md:min-h-[620px]' : '',
         isHovered ? 'scale-[1.025]' : anyHovered ? 'scale-[0.98] grayscale opacity-50' : '',
         className,
       )}
-      style={{ minHeight: event.large ? '620px' : undefined }}
     >
       <img
         src={event.image}
@@ -93,7 +93,7 @@ export function TeaserEventos() {
         <Reveal>
           <div className="flex items-end justify-between gap-4 mb-10">
             <div className="flex flex-col gap-3">
-              <Eyebrow>Torneios · Rankings · Calendário</Eyebrow>
+              <Eyebrow className="text-[10px] tracking-[0.07em] md:text-eyebrow md:tracking-[0.20em]">Torneios · Rankings · Calendário</Eyebrow>
               <h2 className="font-display uppercase text-[clamp(32px,5vw,56px)] leading-[1.02] tracking-tight font-black text-text-primary">
                 O clube que nunca para.
               </h2>

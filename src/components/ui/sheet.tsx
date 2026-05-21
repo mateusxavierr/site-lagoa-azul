@@ -51,11 +51,16 @@ export function Sheet({ open, onClose, children, title, className }: Props) {
             exit={{ x: '100%' }}
             transition={{ duration: 0.32, ease: [0.2, 0.8, 0.2, 1] }}
           >
-            <div className="flex items-center justify-end p-4">
+            <div className="relative flex items-center justify-center px-4 py-3 border-b border-white/10">
+              <img
+                src="/lagoa_azul_logo.png"
+                alt="Lagoa Azul Tênis Clube"
+                className="h-10 w-auto object-contain"
+              />
               <button
                 type="button"
                 onClick={onClose}
-                className="inline-flex items-center justify-center w-touch-min h-touch-min rounded-full text-white/80 hover:text-white hover:bg-white/10 transition-colors"
+                className="absolute right-3 inline-flex items-center justify-center w-touch-min h-touch-min rounded-full text-white/80 hover:text-white hover:bg-white/10 transition-colors"
                 aria-label="Fechar menu"
               >
                 <X className="w-5 h-5" aria-hidden />

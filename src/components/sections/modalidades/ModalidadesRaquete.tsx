@@ -56,55 +56,84 @@ export function ModalidadesRaquete() {
         title="Escolha o seu. Ou experimente todos."
       />
 
-      <div className="flex flex-col gap-16 md:gap-24 lg:gap-32">
+      <div className="flex flex-col">
         {SPORTS.map((sport, i) => {
           const reverse = i % 2 === 1
           return (
-            <Reveal key={sport.id} stagger as="article">
-              <div id={sport.id} className="scroll-mt-20" />
-              <div
-                className={cn(
-                  'grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center',
-                  reverse && 'lg:[&>*:first-child]:order-2',
-                )}
-              >
-                <RevealItem>
-                  <div className="relative overflow-hidden rounded-xl shadow-lg aspect-video">
-                    <img
-                      src={sport.image}
-                      alt={sport.title}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                </RevealItem>
+            <div key={sport.id}>
+              {/* Divisor entre esportes */}
+              {i > 0 && (
+                <div
+                  className="h-px mx-auto w-3/4 my-16 md:my-24 lg:my-28"
+                  style={{ background: 'linear-gradient(90deg, transparent 0%, rgba(10,169,190,0.25) 30%, rgba(117,181,59,0.2) 70%, transparent 100%)' }}
+                  aria-hidden
+                />
+              )}
 
-                <RevealItem className="flex flex-col gap-5">
-                  <h3 className="font-display uppercase text-[clamp(36px,5vw,56px)] leading-[0.98] tracking-tight font-black text-text-primary">
-                    {sport.title}
-                  </h3>
-                  <p className="text-body-lg text-text-secondary max-w-prose">{sport.body}</p>
-                  <ul className="flex flex-wrap gap-2 mt-2">
-                    {sport.tags.map((t) => (
-                      <li
-                        key={t}
-                        className="inline-flex items-center px-3 py-1.5 rounded-full bg-surface-muted border border-border text-caption uppercase tracking-[0.12em] font-bold text-text-primary"
-                      >
-                        {t}
-                      </li>
-                    ))}
-                  </ul>
-                  <a
-                    href={WHATSAPP_URL}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="group inline-flex items-center gap-2 mt-2 text-label uppercase tracking-wider font-display font-bold text-brand-primary hover:text-brand-secondary transition-colors"
+              <Reveal stagger as="article">
+                <div id={sport.id} className="scroll-mt-20" />
+                <div className="relative overflow-hidden">
+                  {/* Watermark fora do grid para não interferir no order */}
+                  <span
+                    aria-hidden
+                    className="pointer-events-none select-none absolute font-display font-black uppercase leading-none text-text-primary opacity-[0.04] hidden lg:block"
+                    style={{
+                      fontSize: 'clamp(80px, 12vw, 160px)',
+                      bottom: '-0.1em',
+                      [reverse ? 'left' : 'right']: '-0.05em',
+                      letterSpacing: '-0.03em',
+                      zIndex: 0,
+                    }}
                   >
-                    Falar pelo WhatsApp
-                    <ArrowRight className="w-4 h-4 transition-transform duration-base group-hover:translate-x-0.5" aria-hidden />
-                  </a>
-                </RevealItem>
-              </div>
-            </Reveal>
+                    {sport.title}
+                  </span>
+
+                  <div
+                    className={cn(
+                      'relative grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center',
+                      reverse && 'lg:[&>*:first-child]:order-2',
+                    )}
+                    style={{ zIndex: 1 }}
+                  >
+                  <RevealItem>
+                    <div className="relative overflow-hidden rounded-xl shadow-lg aspect-video">
+                      <img
+                        src={sport.image}
+                        alt={sport.title}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  </RevealItem>
+
+                  <RevealItem className="flex flex-col gap-5">
+                    <h3 className="font-display uppercase text-[clamp(36px,5vw,56px)] leading-[0.98] tracking-tight font-black text-text-primary">
+                      {sport.title}
+                    </h3>
+                    <p className="text-body-lg text-text-secondary max-w-prose">{sport.body}</p>
+                    <ul className="flex flex-wrap gap-2 mt-2">
+                      {sport.tags.map((t) => (
+                        <li
+                          key={t}
+                          className="inline-flex items-center px-3 py-1.5 rounded-full bg-surface-muted border border-border text-caption uppercase tracking-[0.12em] font-bold text-text-primary"
+                        >
+                          {t}
+                        </li>
+                      ))}
+                    </ul>
+                    <a
+                      href={WHATSAPP_URL}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="group inline-flex items-center gap-2 mt-2 text-label uppercase tracking-wider font-display font-bold text-brand-primary hover:text-brand-secondary transition-colors"
+                    >
+                      Falar pelo WhatsApp
+                      <ArrowRight className="w-4 h-4 transition-transform duration-base group-hover:translate-x-0.5" aria-hidden />
+                    </a>
+                  </RevealItem>
+                  </div>{/* fecha grid */}
+                </div>{/* fecha relative overflow-hidden */}
+              </Reveal>
+            </div>
           )
         })}
       </div>

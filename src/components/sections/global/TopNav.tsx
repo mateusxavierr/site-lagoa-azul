@@ -120,9 +120,9 @@ export function TopNav() {
         </div>
       </div>
 
-      {/* ── Mobile: logo à esquerda, hamburger à direita ── */}
+      {/* ── Mobile: logo à esquerda, CTA centro, hamburger à direita ── */}
       <Container className="lg:hidden h-nav-h">
-        <div className="flex items-center justify-between h-full">
+        <div className="relative flex items-center justify-between h-full">
           <Link to="/" aria-label="Lagoa Azul Tênis Clube — início">
             <img
               src="/lagoa_azul_logo.png"
@@ -130,6 +130,20 @@ export function TopNav() {
               className="h-10 w-auto object-contain"
             />
           </Link>
+
+          {/* CTA centralizado */}
+          <div className="absolute left-1/2 -translate-x-1/2">
+            <TennisBallCta
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="cta-tennis--no-resize"
+            >
+              Agendar visita
+              <ArrowRight className="w-4 h-4" aria-hidden />
+            </TennisBallCta>
+          </div>
+
           <button
             type="button"
             className={cn(
@@ -148,7 +162,7 @@ export function TopNav() {
       </Container>
 
       <Sheet open={open} onClose={() => setOpen(false)} title="Menu de navegação">
-        <nav className="flex flex-col gap-1 mt-4" aria-label="Navegação mobile">
+        <nav className="flex flex-col mt-2" aria-label="Navegação mobile">
           {NAV_LINKS.map((l) => (
             <NavLink
               key={l.href}
@@ -157,7 +171,7 @@ export function TopNav() {
               onClick={() => setOpen(false)}
               className={({ isActive }) =>
                 cn(
-                  'px-2 py-4 text-h3 font-display uppercase tracking-tight font-bold border-b border-border-inverse transition-colors',
+                  'w-full py-5 text-center font-display uppercase tracking-widest font-black border-b border-white/10 transition-colors text-[1.35rem] leading-none',
                   isActive ? 'text-brand-primary' : 'text-white hover:text-brand-primary',
                 )
               }

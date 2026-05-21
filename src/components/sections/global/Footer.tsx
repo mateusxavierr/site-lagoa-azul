@@ -88,7 +88,7 @@ export function Footer() {
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-caption text-white/55">
           <span>© 2026 {CLUB.name} · Desenvolvido por MXC Digital</span>
           <span className="text-white/40">
-            CNPJ: <span className="text-white/55 italic">[INSERIR — HUMANO]</span>
+            CNPJ: 03.618.426/0001-00
           </span>
         </div>
       </Container>
