@@ -6,7 +6,7 @@ import App from './App'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/site-lagoa-azul">
       <App />
     </BrowserRouter>
   </StrictMode>,
