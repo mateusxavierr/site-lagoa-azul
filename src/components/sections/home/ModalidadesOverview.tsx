@@ -71,7 +71,7 @@ export function ModalidadesOverview() {
                 transition={{ duration: 0.4, ease: [0.2, 0.8, 0.2, 1] }}
               >
                 <motion.img
-                  src={MODALITIES[active].image}
+                  src={asset(MODALITIES[active].image)}
                   alt=""
                   aria-hidden
                   className="w-full h-full object-cover"
